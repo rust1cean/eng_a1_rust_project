@@ -1,0 +1,10 @@
+[package]
+name = "eng_a1_rust_project"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.4"
+rand = "0.9.1"
+serde = { version = "1.0.219", features = ["serde_derive"] }
+tokio = { version = "1.45.1", features = ["rt-multi-thread"] }
