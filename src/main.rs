@@ -1,4 +1,7 @@
-use axum::*;
+use axum::Router;
+use axum::Json;
+use axum::routing::get;
+use axum::response::IntoResponse;
 use rand::prelude::*;
 use serde::*;
 
@@ -14,11 +17,11 @@ async fn hello_world() -> impl IntoResponse {
     "Hello, world!"
 }
 
-async fn get_cookie() -> Cookie {
+async fn get_cookie() -> Json<Cookie> {
     let wish = format!("Today is your day!");
     let flavor = Flavor::random_flavor();
 
-    Cookie { wish, flavor }
+    Json(Cookie { wish, flavor })
 }
 
 #[derive(Debug, Serialize)]
